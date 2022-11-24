@@ -1,0 +1,93 @@
+
+##Save Category
+POST /category HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Content-Length: 107
+
+Body
+        {
+            "id": null,
+            "name": "Cat-2",
+            "status": "Active"
+        }
+        
+Response
+{
+    "id": 2,
+    "name": "Cat-2",
+    "status": "Active"
+}
+
+
+##Update Category
+PUT /category/2 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Content-Length: 107
+
+Body
+        {
+            "id": null,
+            "name": "Cat-3",
+            "status": "Active"
+        }
+        
+Response
+{
+    "id": 2,
+    "name": "Cat-3",
+    "status": "Active"
+}     
+
+      
+## Get By ID
+GET /category/1 HTTP/1.1
+Host: localhost:8080
+
+Response
+{
+    "id": 1,
+    "name": "Cat-1",
+    "status": "Active"
+}
+
+## Get All Category
+GET /category?page=0&size=10&name=Cat&sort=name,asc HTTP/1.1
+Host: localhost:8080
+
+Response
+{
+    "content": [
+        {
+            "id": 1,
+            "name": "Cat-1",
+            "status": "Active"
+        }
+    ],
+    "pageable": {
+        "sort": {
+            "sorted": false,
+            "unsorted": true,
+            "empty": true
+        },
+        "pageNumber": 0,
+        "pageSize": 20,
+        "offset": 0,
+        "paged": true,
+        "unpaged": false
+    },
+    "totalElements": 1,
+    "totalPages": 1,
+    "last": true,
+    "first": true,
+    "size": 20,
+    "number": 0,
+    "sort": {
+        "sorted": false,
+        "unsorted": true,
+        "empty": true
+    },
+    "numberOfElements": 1,
+    "empty": false
+}
